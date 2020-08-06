@@ -19,7 +19,6 @@ export class ImageSearchComponent implements OnInit {
   }
 
   public search(event: any): void {
-    console.log('клик');
     const keyword = event.target.value.toLowerCase();
     if (keyword && keyword.length > 0) {
       this.images = this.getPicturesService.getImageUrls(keyword);
