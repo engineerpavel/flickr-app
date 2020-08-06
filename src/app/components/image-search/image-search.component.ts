@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {UrlObject} from '../../models/image.model';
 import {GetPicturesService} from '../../services/get-pictures.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-image-search',
@@ -10,7 +11,7 @@ import {GetPicturesService} from '../../services/get-pictures.service';
 })
 export class ImageSearchComponent implements OnInit {
   public searchControl = new FormControl('');
-  public images: UrlObject[];
+  public images: Observable<UrlObject[]>;
   constructor(private getPicturesService: GetPicturesService) { }
 
   public ngOnInit(): void {
@@ -18,9 +19,10 @@ export class ImageSearchComponent implements OnInit {
   }
 
   public search(event: any): void {
+    console.log('клик');
     const keyword = event.target.value.toLowerCase();
     if (keyword && keyword.length > 0) {
-      this.getPicturesService.getImageUrls(keyword).subscribe()
+      this.images = this.getPicturesService.getImageUrls(keyword);
     }
     return null;
   }
