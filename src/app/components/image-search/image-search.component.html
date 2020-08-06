@@ -2,7 +2,7 @@
 <div class="image-search-component">
   <span class="header"><H1>Поиск картинок на flickr</H1></span>
   <div class="input-block">
-    <input type="search" placeholder="Поиск картинок" (keyup)="search($event)">
+    <input type="search" placeholder="Поиск картинок" [formControl]="searchControl">
   </div>
   <div class="image-container">
     <div class="image" *ngFor="let image of images | async">
