@@ -1,0 +1,14 @@
+
+<div class="image-search-component">
+  <span class="header"><H1>Поиск картинок на flickr</H1></span>
+  <div class="input-block">
+    <input type="search" placeholder="Поиск картинок" [formControl]="searchControl">
+  </div>
+  <div class="image-container">
+    <div class="image" *ngFor="let image of images | async">
+      <a href="{{image.url}}_b.jpg" target="_blank">
+        <img src="{{image.url}}_m.jpg" title="{{image.title}}">
+      </a>
+    </div>
+  </div>
+</div>
