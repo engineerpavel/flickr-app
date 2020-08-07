@@ -23,13 +23,4 @@ export class ImageSearchComponent implements OnInit {
       switchMap((query: string) => this.images = this.getPicturesService.getImageUrls(query))
     ).subscribe();
   }
-
-  public search(event: any): void {
-    const keyword = event.target.value.toLowerCase();
-    if (keyword && keyword.length > 0) {
-      this.images = this.getPicturesService.getImageUrls(keyword);
-    }
-    return null;
-  }
-
 }
