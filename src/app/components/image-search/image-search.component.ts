@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {UrlObject} from '../../models/image.model';
 import {GetPicturesService} from '../../services/get-pictures.service';
@@ -16,12 +16,12 @@ export class ImageSearchComponent implements OnInit {
   constructor(private getPicturesService: GetPicturesService) { }
 
   public ngOnInit(): void {
-    this.images = this.searchControl.valueChanges.pipe(
-      filter((value) => value && value.length),
+    this.images = this.getPicturesService.getImageUrls('');
+    this.searchControl.valueChanges.pipe(
       debounceTime(500),
       distinctUntilChanged(),
-      switchMap((query: string) => this.getPicturesService.getImageUrls(query))
-    );
+      switchMap((query: string) => this.images = this.getPicturesService.getImageUrls(query))
+    ).subscribe();
   }
 
   public search(event: any): void {

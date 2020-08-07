@@ -13,8 +13,14 @@ export class GetPicturesService {
   constructor(private http: HttpClient) { }
 
   public getImageUrls(keyword: string): Observable<UrlObject[]> {
-    const searchUrl = `https://api.flickr.com/services/rest/?method=flickr.photos.search`;
-    const params = `&api_key=${environment.flickrKey}&text=${keyword}&per_page=15&format=json&nojsoncallback=1`;
+    let searchUrl = `https://api.flickr.com/services/rest/?method=`;
+    let params = `&api_key=${environment.flickrKey}&per_page=15&format=json&nojsoncallback=1`;
+    if (keyword && keyword.length) {
+      searchUrl = searchUrl.concat(`flickr.photos.search`);
+      params = params.concat(`&text=${keyword}`);
+    } else {
+      searchUrl = searchUrl.concat(`flickr.photos.getRecent`);
+    }
     return this.http.get(searchUrl + params).pipe(
       map((res: FlickrOutput) => {
         const urlArr = [];
