@@ -21,7 +21,7 @@ export class GetPicturesService {
     } else {
       searchUrl = searchUrl.concat(`flickr.photos.getRecent`);
     }
-    return this.http.get(searchUrl + params).pipe(
+    return this.http.get(searchUrl.concat(params)).pipe(
       map((res: FlickrOutput) => {
         const urlArr = [];
         res.photos.photo.forEach((photo: ImageModel) => {
