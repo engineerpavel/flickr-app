@@ -1,8 +1,8 @@
 
 <div class="image-search-component">
-  <span class="header"><H1>Поиск картинок на flickr</H1></span>
+  <span class="header"><H1>Image search on Flickr</H1></span>
   <div class="input-block">
-    <input type="search" placeholder="Поиск картинок" [formControl]="searchControl">
+    <input type="search" placeholder="Image search" [formControl]="searchControl">
   </div>
   <div class="image-container">
     <div class="image" *ngFor="let image of images | async">
