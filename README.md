@@ -1,9 +1,15 @@
 # FlickrApp
-
+RU:
 Создать приложение для поиска картинок во flickr.
 Использовать api для поиска и отображения картинок https://www.flickr.com/services/api/
 На странице должна быть форма поиска, ниже нее должны отображаться картинки из произвольной категории, например "популярное"
 При вводе символов в поле поиска загрузка и отображение картинок ниже должно происходить в режиме реального времени.
+
+EN:
+Create an app to search for images on flickr.
+Use the api to search for and display images https://www.flickr.com/services/api/
+The page should have a search form, and images from any category should be displayed below it, such as "popular"
+When you enter characters in the search field, images below should be loaded and displayed in real time.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.3.
 
